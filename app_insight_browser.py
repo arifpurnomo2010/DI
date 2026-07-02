@@ -563,6 +563,7 @@ def server(input, output, session):
                                     "content_original",
                                     "content_english",
                                     "wow_factor_score",
+                                    "mention_target",
                                 ]
                                 if c in pf.columns
                             ]
@@ -588,6 +589,33 @@ def server(input, output, session):
                                 content_eng_raw = str(r.get("content_english", "")).strip()
                                 orig = html.escape(phrase_orig_raw or content_orig_raw) or "-"
                                 eng = html.escape(phrase_eng_raw or content_eng_raw or phrase_orig_raw or content_orig_raw) or "-"
+
+                                # Badge mention_target
+                                mention_target = str(r.get("mention_target", "") or "").strip().lower()
+                                if mention_target == "competitor":
+                                    badge_html = (
+                                        "<span style='"
+                                        "display:inline-block;margin-left:6px;padding:1px 6px;"
+                                        "background:#FFF3CD;color:#92400E;border:1px solid #F59E0B;"
+                                        "border-radius:10px;font-size:10px;font-weight:600;"
+                                        "vertical-align:middle;cursor:default"
+                                        "' title='This phrase is about a competitor vehicle'>"
+                                        "⚠ Competitor"
+                                        "</span>"
+                                    )
+                                elif mention_target == "general":
+                                    badge_html = (
+                                        "<span style='"
+                                        "display:inline-block;margin-left:6px;padding:1px 6px;"
+                                        "background:#F1F5F9;color:#475569;border:1px solid #CBD5E1;"
+                                        "border-radius:10px;font-size:10px;font-weight:600;"
+                                        "vertical-align:middle;cursor:default"
+                                        "' title='General market observation - not specific to this vehicle'>"
+                                        "ℹ General"
+                                        "</span>"
+                                    )
+                                else:
+                                    badge_html = ""
 
                                 # Bangun tooltip text: prioritas full comment, fallback ke phrase.
                                 full_orig = html.escape(content_orig_raw) if content_orig_raw else ""
@@ -619,7 +647,7 @@ def server(input, output, session):
                                     "<li style='margin-bottom:8px'>"
                                     f"<div><b>record_id:</b> {rec_id}</div>"
                                     f"<div><b>Original:</b> {orig[:240]}{'...' if len(orig) > 240 else ''}</div>"
-                                    f"<div><b>English:</b> {eng_display}</div>"
+                                    f"<div><b>English:</b> {eng_display}{badge_html}</div>"
                                     "</li>"
                                 )
                             parts.append("</ul>")
