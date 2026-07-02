@@ -1,0 +1,95 @@
+record_id,aspect_index,category,parameter,sentiment,confidence,focus_model,is_wow_factor,review_flag,is_substantial,wow_factor_score,wow_score_tier,engagement_score
+9cbce7ca-cd87-41bd-bb5e-b2603e89ee5d,0,Comfort & Space,Ride Quality,Positive,0.9,Honda BRV,FALSE,OK,TRUE,78.09,HIGH,68.18
+9cbce7ca-cd87-41bd-bb5e-b2603e89ee5d,1,Powertrain / Performance,Energy Consumption,Positive,0.9,Honda BRV,FALSE,OK,TRUE,78.09,HIGH,68.18
+9cbce7ca-cd87-41bd-bb5e-b2603e89ee5d,2,Powertrain / Performance,Maneuverability,Positive,0.9,Honda BRV,FALSE,OK,TRUE,78.09,HIGH,68.18
+9cbce7ca-cd87-41bd-bb5e-b2603e89ee5d,3,Comfort & Space,Seat Comfort,Positive,0.8,Honda BRV,FALSE,OK,TRUE,78.09,HIGH,68.18
+9cbce7ca-cd87-41bd-bb5e-b2603e89ee5d,4,Other,Ownership Experience,Positive,0.9,Honda BRV,FALSE,OK,TRUE,78.09,HIGH,68.18
+9fa005dc-634e-4385-9fbd-e6738490772d,0,Powertrain / Performance,Energy Consumption,Neutral,0.7,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,18.77,LOW,16.55
+6182e3b1-9f0e-4980-a16e-152401553ccf,0,Value Perception,Price,Neutral,0.8,Honda BRV,FALSE,OK,TRUE,42.5,MEDIUM,0
+6182e3b1-9f0e-4980-a16e-152401553ccf,1,Safety & ADAS,ADAS Features,Positive,0.9,Honda BRV,FALSE,OK,TRUE,42.5,MEDIUM,0
+399b53ab-41f0-42dc-897e-c04aa2956109,0,Value Perception,Value for Money,Positive,0.9,Honda BRV,FALSE,OK,TRUE,47.34,MEDIUM,9.68
+399b53ab-41f0-42dc-897e-c04aa2956109,1,Other,Ownership Experience,Positive,0.8,Honda BRV,FALSE,OK,TRUE,47.34,MEDIUM,9.68
+88e5c27e-5d9c-40a0-a2f0-a1bb2b55111f,0,Other,Ownership Experience,Positive,0.9,Honda BRV,FALSE,OK,FALSE,,,
+ee9d4ef0-5aee-4f08-877c-d8bda009629c,0,Comfort & Space,Cabin Space,Positive,0.9,Honda BRV,FALSE,OK,TRUE,57.72,MEDIUM,28.74
+ee9d4ef0-5aee-4f08-877c-d8bda009629c,1,Comfort & Space,Ride Quality,Positive,0.8,Honda BRV,FALSE,OK,TRUE,57.72,MEDIUM,28.74
+ee9d4ef0-5aee-4f08-877c-d8bda009629c,2,Other,General Impression,Positive,0.9,Honda BRV,FALSE,OK,TRUE,57.72,MEDIUM,28.74
+d5ce64af-9996-4660-9add-5b7edd1a67b4,0,Styling / Design,Rear Design,Positive,0.95,Honda BRV,FALSE,OK,TRUE,84.4,HIGH,73.8
+96c39e8a-5015-41bf-af89-3af4669fb1ad,0,Styling / Design,Exterior Design,Positive,0.9,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,19.21,LOW,38.42
+96c39e8a-5015-41bf-af89-3af4669fb1ad,1,Styling / Design,Interior Design,Negative,0.8,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,19.21,LOW,38.42
+ef3d6ab8-a744-4367-9926-ce22e52e8a83,0,Brand Perception,Brand Image,Positive,0.8,Honda BRV,TRUE,OK,TRUE,40,MEDIUM,0
+d9a80150-560b-43f7-9b00-33e26460a0c7,0,Other,General Impression,Positive,0.9,Honda BRV,TRUE,OK,FALSE,,,
+7a66507f-ebb3-4a81-8e67-53c46add977d,0,Other,General Impression,Positive,0.9,Honda BRV,TRUE,OK,FALSE,,,
+d7f26264-31b3-4e5b-9f48-771bb72e992b,0,Styling / Design,Exterior Design,Positive,0.9,Honda BRV,FALSE,OK,TRUE,48.59,MEDIUM,9.68
+d7f26264-31b3-4e5b-9f48-771bb72e992b,1,Value Perception,Competitor Comparison,Positive,0.85,Honda BRV,FALSE,OK,TRUE,48.59,MEDIUM,9.68
+d7843c54-dd56-4696-91ab-1bf7c0ed7fc6,0,Other,General Impression,Positive,0.6,Honda BRV,FALSE,LOW_CONFIDENCE,FALSE,,,
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,0,Comfort & Space,Cabin Space,Positive,0.95,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,1,Comfort & Space,Ride Quality,Positive,0.9,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,2,Powertrain / Performance,Engine Power,Positive,0.9,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,3,Powertrain / Performance,Energy Consumption,Positive,0.85,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,4,Styling / Design,Exterior Design,Positive,0.85,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,5,Value Perception,Resale Value,Positive,0.9,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,6,Brand Perception,Brand Trust,Positive,0.9,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,7,Other,Ownership Experience,Positive,0.95,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,8,Other,Accessories,Positive,0.8,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+e66f88c1-64fc-4a41-b069-9d16c5ec5783,9,Safety & ADAS,ADAS Features,Neutral,0.7,Honda BRV,TRUE,OK,TRUE,93.5,HIGH,100
+f14821ee-21b6-4b00-8481-4ff79b201cbe,0,Other,Ownership Experience,Positive,0.6,Honda BRV,FALSE,LOW_CONFIDENCE|LONG_NONSUBSTANTIAL,FALSE,,,
+93b40179-2460-492d-a173-9d47413f007d,0,Powertrain / Performance,Energy Consumption,Neutral,0.9,Honda BRV,FALSE,OK,TRUE,26.61,LOW,26.23
+a812c1a3-0876-4a3d-9058-7c75f10cd8a0,0,Safety & ADAS,Speed Alert,Neutral,0.9,Honda BRV,FALSE,OK,TRUE,21.77,LOW,16.55
+fbf5d07c-53e1-4079-bda2-8065366a7067,0,Other,General Impression,Positive,0.8,Honda BRV,FALSE,OK,FALSE,,,
+cf8b0869-c34e-4365-826e-758d296fd352,0,Other,Ownership Experience,Neutral,0.9,Honda BRV,FALSE,OK,TRUE,12,LOW,0
+cf8b0869-c34e-4365-826e-758d296fd352,1,Value Perception,Maintenance Cost,Neutral,0.8,Honda BRV,FALSE,OK,TRUE,12,LOW,0
+cf8b0869-c34e-4365-826e-758d296fd352,2,Other,General Impression,Positive,0.7,Honda BRV,FALSE,OK,TRUE,12,LOW,0
+4c8c10de-1fec-4412-9cbf-b189c0661e2d,0,Powertrain / Performance,Energy Consumption,Positive,0.9,Honda BRV,FALSE,OK,TRUE,40,MEDIUM,0
+4c8c10de-1fec-4412-9cbf-b189c0661e2d,1,Comfort & Space,Cabin Space,Positive,0.8,Honda BRV,FALSE,OK,TRUE,40,MEDIUM,0
+4c8c10de-1fec-4412-9cbf-b189c0661e2d,2,Comfort & Space,Ride Quality,Positive,0.7,Honda BRV,FALSE,OK,TRUE,40,MEDIUM,0
+728f2f36-51c9-4a5b-a99b-a1e99428e145,0,Safety & ADAS,Parking Sensor,Neutral,0.9,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,13.5,LOW,0
+728f2f36-51c9-4a5b-a99b-a1e99428e145,1,Safety & ADAS,Seatbelt Reminder,Neutral,0.9,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,13.5,LOW,0
+9f25ae4a-dcb2-410e-9664-35d9f6f2d6f8,0,Comfort & Space,Air Conditioning,Negative,0.9,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,4.84,LOW,9.68
+9f25ae4a-dcb2-410e-9664-35d9f6f2d6f8,1,Other,Ownership Experience,Positive,0.8,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,4.84,LOW,9.68
+ede240d5-747d-49c8-b503-935470c3279b,0,Other,General Impression,Neutral,0.9,Honda BRV,FALSE,LONG_NONSUBSTANTIAL,FALSE,,,
+535672c5-eb55-4e45-8675-f4ca6b013cc2,0,Styling / Design,Exterior Design,Positive,0.9,Honda BRV,FALSE,OK,TRUE,76.5,HIGH,63.01
+dab77c0a-e872-45b4-b68e-3d9430705e50,0,Other,General Impression,Neutral,0.9,Honda BRV,FALSE,LONG_NONSUBSTANTIAL,FALSE,,,
+e1ed1429-0672-4c16-81ee-29a18c1e4602,0,Other,General Impression,Positive,0.9,Honda BRV,FALSE,OK,FALSE,,,
+05ccc103-b555-4525-9756-a85f798c208e,0,Styling / Design,Rear End Design,Negative,0.9,Honda BRV,FALSE,OK,TRUE,25.55,LOW,51.09
+05ccc103-b555-4525-9756-a85f798c208e,1,Styling / Design,Competitor Comparison,Negative,0.8,Honda BRV,FALSE,OK,TRUE,25.55,LOW,51.09
+bef9c8fb-cab2-4e29-959c-919bf783e06c,0,Styling / Design,Rear Design,Positive,0.9,Honda BRV,FALSE,OK,TRUE,57.72,MEDIUM,28.74
+bef9c8fb-cab2-4e29-959c-919bf783e06c,1,Comfort & Space,Cabin Space,Positive,0.9,Honda BRV,FALSE,OK,TRUE,57.72,MEDIUM,28.74
+bef9c8fb-cab2-4e29-959c-919bf783e06c,2,Value Perception,Size Preference,Positive,0.8,Honda BRV,FALSE,OK,TRUE,57.72,MEDIUM,28.74
+ed6f8db8-0979-44c4-aa55-d17ec90d56b0,0,Value Perception,Value for Money,Positive,0.9,Honda BRV,FALSE,OK,TRUE,49.45,MEDIUM,12.2
+ed6f8db8-0979-44c4-aa55-d17ec90d56b0,1,Powertrain / Performance,Energy Consumption,Positive,0.9,Honda BRV,FALSE,OK,TRUE,49.45,MEDIUM,12.2
+ed6f8db8-0979-44c4-aa55-d17ec90d56b0,2,New Tech,Remote Start,Positive,0.8,Honda BRV,FALSE,OK,TRUE,49.45,MEDIUM,12.2
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,0,Powertrain / Performance,Hill Climbing,Positive,0.9,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,1,Powertrain / Performance,Acceleration,Positive,0.8,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,2,Powertrain / Performance,Engine Power,Neutral,0.7,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,3,Comfort & Space,Cabin Space,Positive,0.9,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,4,Comfort & Space,Cup Holders,Negative,0.8,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,5,New Tech,Charging Port,Negative,0.8,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+8f87c3ff-5dfa-4803-a7a9-90426b90a508,6,Styling / Design,Spoiler,Negative,0.7,Honda BRV,FALSE,MIXED_SENTIMENT,TRUE,1.59,LOW,3.19
+7a02b50b-0e77-4924-ad55-78b3adb1257a,0,Powertrain / Performance,Energy Consumption,Neutral,0.8,Honda BRV,FALSE,OK,TRUE,20.27,LOW,16.55
+066d80f1-2c64-4735-85ec-045f70e6373b,0,Other,General Impression,Neutral,0.9,Honda BRV,FALSE,OK,FALSE,,,
+6cdbc031-175b-4ff1-ab81-07ab066b76be,0,Powertrain / Performance,Engine Option,Positive,0.9,Honda BRV,FALSE,OK,TRUE,50.78,MEDIUM,16.55
+6cdbc031-175b-4ff1-ab81-07ab066b76be,1,Value Perception,Price,Positive,0.8,Honda BRV,FALSE,OK,TRUE,50.78,MEDIUM,16.55
+6cdbc031-175b-4ff1-ab81-07ab066b76be,2,Value Perception,Value for Money,Positive,0.85,Honda BRV,FALSE,OK,TRUE,50.78,MEDIUM,16.55
+d9804952-bb78-43cb-ace4-81c9e7298c29,0,Comfort & Space,Seat Comfort,Negative,0.9,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,12.07,LOW,24.15
+d9804952-bb78-43cb-ace4-81c9e7298c29,1,Value Perception,Price,Negative,0.85,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,12.07,LOW,24.15
+d9804952-bb78-43cb-ace4-81c9e7298c29,2,Value Perception,Competitor Comparison,Negative,0.8,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,12.07,LOW,24.15
+d9804952-bb78-43cb-ace4-81c9e7298c29,3,Brand Perception,Brand Trust,Neutral,0.7,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,12.07,LOW,24.15
+941ed4df-fbb7-45a0-bf20-7dee0aeb80bc,0,Styling / Design,Exterior Design,Positive,0.9,Honda BRV,FALSE,OK,TRUE,42.5,MEDIUM,0
+941ed4df-fbb7-45a0-bf20-7dee0aeb80bc,1,Comfort & Space,Cabin Space,Positive,0.8,Honda BRV,FALSE,OK,TRUE,42.5,MEDIUM,0
+941ed4df-fbb7-45a0-bf20-7dee0aeb80bc,2,Comfort & Space,Visibility,Positive,0.85,Honda BRV,FALSE,OK,TRUE,42.5,MEDIUM,0
+4ccb7d03-882f-4c1d-9a1e-3d0b8be30a27,0,Styling / Design,Exterior Design,Positive,0.9,Honda BRV,FALSE,OK,TRUE,64.1,MEDIUM,40.7
+4ccb7d03-882f-4c1d-9a1e-3d0b8be30a27,1,Styling / Design,Body Shape,Positive,0.85,Honda BRV,FALSE,OK,TRUE,64.1,MEDIUM,40.7
+32858fcb-2d25-4f75-b8f9-322571942b66,0,Other,General Impression,Positive,0.7,Honda BRV,FALSE,OK,FALSE,,,
+31756093-898d-43f7-b9f3-36df17a53917,0,Styling / Design,Exterior Design,Positive,0.8,Honda BRV,FALSE,OK,TRUE,61.39,MEDIUM,42.78
+d124faac-f2b8-4f8a-a5e2-6d9cdc8273bc,0,Comfort & Space,NVH,Positive,0.7,Honda BRV,FALSE,OK,TRUE,43.27,MEDIUM,16.55
+d124faac-f2b8-4f8a-a5e2-6d9cdc8273bc,1,Comfort & Space,Ride Quality,Positive,0.7,Honda BRV,FALSE,OK,TRUE,43.27,MEDIUM,16.55
+51716c79-e078-4367-9d07-7e6e700632ab,0,Value Perception,Competitor Comparison,Positive,0.9,Honda BRV,FALSE,OK,TRUE,45,MEDIUM,0
+d9cc835f-f94b-412e-8cc7-b6553959cb2c,0,Other,General Impression,Positive,0.9,Honda BRV,FALSE,LONG_NONSUBSTANTIAL,FALSE,,,
+330cc69f-8444-4c07-9921-17564007c5dd,0,Value Perception,Price,Positive,0.9,Honda BRV,FALSE,OK,TRUE,91.31,HIGH,99.32
+330cc69f-8444-4c07-9921-17564007c5dd,1,Comfort & Space,Seat Comfort,Positive,0.8,Honda BRV,FALSE,OK,TRUE,91.31,HIGH,99.32
+330cc69f-8444-4c07-9921-17564007c5dd,2,Safety & ADAS,Parking Sensor,Positive,0.8,Honda BRV,FALSE,OK,TRUE,91.31,HIGH,99.32
+051a6773-54cb-4a8d-808e-8dd15e829ab1,0,Other,Steering Wheel Noise,Negative,0.9,Honda BRV,FALSE,LONG_NONSUBSTANTIAL,FALSE,,,
+cdb6a30b-03cf-4f43-927a-c19e15e536c5,0,Other,Ownership Experience,Neutral,0.9,Honda BRV,FALSE,LONG_NONSUBSTANTIAL,FALSE,,,
+fd4ac178-f6cc-4eba-97ff-2dc8fbdc3a8d,0,Safety & ADAS,Parking Sensor,Neutral,0.9,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,13.5,LOW,0
+fd4ac178-f6cc-4eba-97ff-2dc8fbdc3a8d,1,Value Perception,Warranty,Neutral,0.9,Honda BRV,FALSE,WOW_NOT_POSITIVE,TRUE,13.5,LOW,0
+7ac12c03-92a0-4750-90d6-ce2437b4c28a,0,Other,Accessories,Neutral,0.9,Honda BRV,FALSE,WOW_NOT_POSITIVE|LONG_NONSUBSTANTIAL,FALSE,,,
