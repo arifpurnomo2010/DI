@@ -4,3 +4,18 @@ __pycache__/
 venv/
 .env
 .DS_Store
+
+# Keep local Output complete, but track only required CSVs per country in git.
+Output/**
+!Output/VN/
+!Output/ID/
+!Output/PH/
+Output/VN/**
+Output/ID/**
+Output/PH/**
+!Output/VN/output_step5_aspects.csv
+!Output/VN/pipeline_summary.csv
+!Output/ID/output_step5_aspects.csv
+!Output/ID/pipeline_summary.csv
+!Output/PH/output_step5_aspects.csv
+!Output/PH/pipeline_summary.csv
