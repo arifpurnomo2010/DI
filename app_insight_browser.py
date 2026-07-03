@@ -287,6 +287,15 @@ def build_joined_facts(model_map: pd.DataFrame, aspects: pd.DataFrame, pipeline:
     return facts
 
 
+def _find_aspects_csv(country_dir: Path) -> Path | None:
+    """Locate step-5 aspects export (underscore or legacy dot naming)."""
+    for name in ("output_step5_aspects.csv", "output_step5.aspects.csv"):
+        path = country_dir / name
+        if path.exists():
+            return path
+    return None
+
+
 def load_output_data_auto(output_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
     all_aspects: list[pd.DataFrame] = []
     all_pipeline: list[pd.DataFrame] = []
@@ -299,12 +308,12 @@ def load_output_data_auto(output_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame]
             continue
         country = FOLDER_COUNTRY_MAP.get(d.name.upper(), d.name.title())
 
-        p_aspects = d / "output_step5_aspects.csv"
+        p_aspects = _find_aspects_csv(d)
         p_step5 = d / "output_step5.csv"
         p_pipeline = d / "pipeline_summary.csv"
 
         aspects = pd.DataFrame()
-        if p_aspects.exists():
+        if p_aspects is not None:
             aspects = _read_csv_flex(p_aspects)
             if "country" not in aspects.columns:
                 aspects["country"] = country
