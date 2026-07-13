@@ -20,5 +20,7 @@ Output/PH/**
 !Output/ID/pipeline_summary.csv
 !Output/PH/output_step5_aspects.csv
 !Output/PH/pipeline_summary.csv
+!Output/PH/output_step5_aspects.xlsx
+!Output/PH/pipeline_summary.xlsx
 INSTRUKSI_AGEN_badge_mention_target.md
 app_insight_browser.py
