@@ -1,6 +1,10 @@
 """
-Country-Segment Insight Browser
-===============================
+Country-Segment Insight Browser v2
+====================================
+
+Changes from v1:
+  - Confidence > 0.9 filter only applies to Vietnam (already submitted to client)
+  - All other countries: no confidence filter (all substantial comments shown)
 
 Standalone viewer for:
 - Top selector: all Country|Segment pairs from Model.csv
@@ -9,7 +13,7 @@ Standalone viewer for:
   Model > Sentiment > Category > Parameter > Phrase (Original + English)
 
 Run:
-    shiny run app_insight_browser.py
+    shiny run app_insight_browser_v2.py
 """
 
 from __future__ import annotations
@@ -31,11 +35,23 @@ COUNTRY_CODE = {"Vietnam": "VN", "Indonesia": "ID", "Philippines": "PH"}
 FOLDER_COUNTRY_MAP = {"VN": "Vietnam", "ID": "Indonesia", "PH": "Philippines"}
 
 
-def _read_csv_flex(path: Path, **kwargs) -> pd.DataFrame:
+def _read_file_flex(path: Path, **kwargs) -> pd.DataFrame:
+    """Read CSV or XLSX files flexibly."""
+    suffix = path.suffix.lower()
+    if suffix in (".xlsx", ".xls"):
+        try:
+            return pd.read_excel(path, **kwargs)
+        except Exception as e:
+            print(f"[WARN] Failed to read Excel {path}: {e}")
+            return pd.DataFrame()
     try:
         return pd.read_csv(path, encoding="utf-8-sig", **kwargs)
     except Exception:
         return pd.read_csv(path, encoding="latin-1", **kwargs)
+
+
+def _read_csv_flex(path: Path, **kwargs) -> pd.DataFrame:
+    return _read_file_flex(path, **kwargs)
 
 
 def _norm(s: str) -> str:
@@ -287,16 +303,32 @@ def build_joined_facts(model_map: pd.DataFrame, aspects: pd.DataFrame, pipeline:
     return facts
 
 
-def _find_aspects_csv(country_dir: Path) -> Path | None:
-    """Locate step-5 aspects export (underscore or legacy dot naming)."""
-    for name in ("output_step5_aspects.csv", "output_step5.aspects.csv"):
+def _find_aspects_file(country_dir: Path) -> Path | None:
+    """Locate step-5 aspects export (csv or xlsx, underscore or legacy dot naming)."""
+    for name in (
+        "output_step5_aspects.csv", "output_step5.aspects.csv",
+        "output_step5_aspects.xlsx", "output_step5.aspects.xlsx",
+    ):
         path = country_dir / name
         if path.exists():
             return path
     return None
 
 
+_find_aspects_csv = _find_aspects_file
+
+
+def _find_file_variant(directory: Path, stem: str) -> Path | None:
+    """Find a file by stem, preferring .csv over .xlsx."""
+    for ext in (".csv", ".xlsx", ".xls"):
+        path = directory / f"{stem}{ext}"
+        if path.exists():
+            return path
+    return None
+
+
 def load_output_data_auto(output_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Load only pipeline_summary and output_step5_aspects from each country folder."""
     all_aspects: list[pd.DataFrame] = []
     all_pipeline: list[pd.DataFrame] = []
 
@@ -308,20 +340,11 @@ def load_output_data_auto(output_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame]
             continue
         country = FOLDER_COUNTRY_MAP.get(d.name.upper(), d.name.title())
 
-        p_aspects = _find_aspects_csv(d)
-        p_step5 = d / "output_step5.csv"
-        p_pipeline = d / "pipeline_summary.csv"
+        p_aspects = _find_aspects_file(d)
+        p_pipeline = _find_file_variant(d, "pipeline_summary")
 
-        aspects = pd.DataFrame()
         if p_aspects is not None:
-            aspects = _read_csv_flex(p_aspects)
-            if "country" not in aspects.columns:
-                aspects["country"] = country
-        elif p_step5.exists():
-            step5 = _read_csv_flex(p_step5)
-            aspects = _explode_step5_fallback(step5, country)
-
-        if not aspects.empty:
+            aspects = _read_file_flex(p_aspects)
             if "country" not in aspects.columns:
                 aspects["country"] = country
             if "is_substantial" not in aspects.columns:
@@ -330,10 +353,11 @@ def load_output_data_auto(output_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame]
                 )
             aspects = aspects[aspects["is_substantial"] == True].copy()
             aspects = aspects[aspects["category"].astype(str).str.strip() != "Other"].copy()
-            all_aspects.append(aspects)
+            if not aspects.empty:
+                all_aspects.append(aspects)
 
-        if p_pipeline.exists():
-            pipe = _read_csv_flex(p_pipeline)
+        if p_pipeline is not None:
+            pipe = _read_file_flex(p_pipeline)
             if "country" not in pipe.columns:
                 pipe["country"] = country
             all_pipeline.append(pipe)
@@ -357,15 +381,23 @@ def _build_segment_choices(model_map: pd.DataFrame) -> list[tuple[str, str]]:
     return choices
 
 
-def _load_model_csv_safe(path: Path) -> pd.DataFrame:
+def _load_model_file_safe(path: Path) -> pd.DataFrame:
+    """Load Model.csv or Model.xlsx."""
     if not path.exists():
-        print(f"[WARN] Model.csv not found at {path} — segment selector will be empty.")
-        return pd.DataFrame()
+        alt = path.with_suffix(".xlsx")
+        if alt.exists():
+            path = alt
+        else:
+            print(f"[WARN] Model file not found at {path} — segment selector will be empty.")
+            return pd.DataFrame()
     try:
-        return _read_csv_flex(path, header=None, dtype=str, keep_default_na=False)
+        return _read_file_flex(path, header=None, dtype=str, keep_default_na=False)
     except Exception as e:
-        print(f"[WARN] Failed to read Model.csv at {path}: {e}")
+        print(f"[WARN] Failed to read Model file at {path}: {e}")
         return pd.DataFrame()
+
+
+_load_model_csv_safe = _load_model_file_safe
 
 
 MODEL_MAP_DF = parse_model_segment_map(_load_model_csv_safe(MODEL_CSV))
@@ -480,10 +512,13 @@ app_ui = ui.page_fluid(
 
 
 def server(input, output, session):
-    def _filter_confidence(df: pd.DataFrame) -> pd.DataFrame:
+    def _filter_confidence(df: pd.DataFrame, country: str | None = None) -> pd.DataFrame:
         if df is None or df.empty:
             return pd.DataFrame() if df is None else df
         if "confidence" not in df.columns:
+            return df
+        # Only apply confidence > 0.9 for Vietnam; other countries show all substantial
+        if country and country.strip().lower() not in ("vietnam", "vn"):
             return df
         return df[pd.to_numeric(df["confidence"], errors="coerce").fillna(0) > 0.9].copy()
 
@@ -515,7 +550,7 @@ def server(input, output, session):
         if not models:
             return ui.p("No models mapped for this Country|Segment in Model.csv.", class_="text-muted")
 
-        f_summary = _filter_confidence(f)
+        f_summary = _filter_confidence(f, country=ctx["country"])
         summary_pct = _compute_summary(models, f_summary).sort_values("Model").reset_index(drop=True)
         return ui.HTML(_render_vertical_stacked_chart(summary_pct))
 
@@ -539,7 +574,7 @@ def server(input, output, session):
 
         for model in models:
             mf = f[f["display_model"] == model].copy() if not f.empty else pd.DataFrame()
-            mf = _filter_confidence(mf)
+            mf = _filter_confidence(mf, country=country)
             model_n = len(mf)
             parts.append(f"<details><summary><b>{html.escape(model)}</b> ({model_n} insights)</summary>")
 

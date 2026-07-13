@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 venv/
 .env
+.fb_session/
 .DS_Store
 
 # Keep local Output complete, but track only required CSVs per country in git.
@@ -20,3 +21,4 @@ Output/PH/**
 !Output/PH/output_step5_aspects.csv
 !Output/PH/pipeline_summary.csv
 INSTRUKSI_AGEN_badge_mention_target.md
+app_insight_browser.py
