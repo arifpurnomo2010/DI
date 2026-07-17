@@ -18,6 +18,8 @@ Output/PH/**
 !Output/VN/pipeline_summary.csv
 !Output/ID/output_step5_aspects.csv
 !Output/ID/pipeline_summary.csv
+!Output/ID/output_step5_aspects.xlsx
+!Output/ID/pipeline_summary.xlsx
 !Output/PH/output_step5_aspects.csv
 !Output/PH/pipeline_summary.csv
 !Output/PH/output_step5_aspects.xlsx
