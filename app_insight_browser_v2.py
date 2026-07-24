@@ -484,7 +484,23 @@ def _render_vertical_stacked_chart(summary_pct: pd.DataFrame) -> str:
     )
 
 
+GA_MEASUREMENT_ID = "G-5QREQVDTSL"
+
 app_ui = ui.page_fluid(
+    ui.head_content(
+        ui.tags.script(
+            async_=True,
+            src=f"https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}",
+        ),
+        ui.tags.script(
+            f"""
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', '{GA_MEASUREMENT_ID}');
+"""
+        ),
+    ),
     ui.h2("ASEAN Auto NLP Intelligence"),
     ui.p(
         "Consumer Voice across Indonesia, Vietnam, Philippines",
